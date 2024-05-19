@@ -16,6 +16,7 @@
 		3EF7B2052BFA83AB00F1466C /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B2042BFA83AB00F1466C /* PlaceAnnotation.swift */; };
 		3EF7B2082BFA84B500F1466C /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B2072BFA84B500F1466C /* CLLocation+Extensions.swift */; };
 		3EF7B20A2BFA93F600F1466C /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B2092BFA93F600F1466C /* PlaceDetailViewController.swift */; };
+		3EF7B20C2BFAAB7E00F1466C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B20B2BFAAB7E00F1466C /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3EF7B2042BFA83AB00F1466C /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		3EF7B2072BFA84B500F1466C /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
 		3EF7B2092BFA93F600F1466C /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		3EF7B20B2BFAAB7E00F1466C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				3EF7B2072BFA84B500F1466C /* CLLocation+Extensions.swift */,
+				3EF7B20B2BFAAB7E00F1466C /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				3EF7B2082BFA84B500F1466C /* CLLocation+Extensions.swift in Sources */,
 				3EF7B20A2BFA93F600F1466C /* PlaceDetailViewController.swift in Sources */,
 				3EF7B2022BFA80D100F1466C /* PlacesTableViewController.swift in Sources */,
+				3EF7B20C2BFAAB7E00F1466C /* String+Extensions.swift in Sources */,
 				3EF7B2052BFA83AB00F1466C /* PlaceAnnotation.swift in Sources */,
 				3EC0D7B42BF943D1006DF985 /* AppDelegate.swift in Sources */,
 				3EC0D7B62BF943D1006DF985 /* SceneDelegate.swift in Sources */,
@@ -320,6 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XYSD6A52L4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NearMeApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "NearMe requires location so it can offer nearby points of interests.";
@@ -348,6 +353,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XYSD6A52L4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NearMeApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "NearMe requires location so it can offer nearby points of interests.";
