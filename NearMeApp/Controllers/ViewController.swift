@@ -97,8 +97,12 @@ class ViewController: UIViewController {
             self?.places.forEach { place in
                 self?.mapView.addAnnotation(place)
             }
+            if let places = self?.places {
+                self?.presentPlacesSheet(places: places)
         }
-        self.presentPlacesSheet(places: places)
+      
+
+        }
     }
     private func presentPlacesSheet(places: [PlaceAnnotation]) {
         guard let locationManager = locationManager, let userLocation = locationManager.location
@@ -112,6 +116,12 @@ class ViewController: UIViewController {
             sheet.detents = [.medium(), .large()]
             present(placesTVC, animated: true)
         }
+    }
+    private func clearAllSelections() {
+        self.places = self.places.map({ place in
+            place.isSelected = false
+            return place
+        })
     }
 }
 //MARK: -UISearchTextFieldDelegate
@@ -130,24 +140,29 @@ extension ViewController: UISearchTextFieldDelegate {
 extension ViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect annotation: any MKAnnotation) {
-        guard let placeAnnotation = annotation as? PlaceAnnotation else {return}
-        placeAnnotation.id
+        
+        clearAllSelections()
+        guard let selectAnnotation = annotation as? PlaceAnnotation else {return}
+        let placeAnnotation = self.places.first(where: {$0.id == selectAnnotation.id})
+        placeAnnotation?.isSelected = true
+        
+        presentPlacesSheet(places: self.places)
     }
 }
-//MARK: -CLLocationManagerDelegate
-extension ViewController: CLLocationManagerDelegate {
+    //MARK: -CLLocationManagerDelegate
+    extension ViewController: CLLocationManagerDelegate {
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            print("")
+        }
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+            print("")
+        }
+        func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+            checkLocationAuthorization()
+        }
+    }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("")
+    #Preview {
+        ViewController()
     }
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        print("")
-    }
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
-    }
-}
-
-#Preview {
-    ViewController()
-}
