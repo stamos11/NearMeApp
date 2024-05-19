@@ -15,6 +15,7 @@
 		3EF7B2022BFA80D100F1466C /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B2012BFA80D100F1466C /* PlacesTableViewController.swift */; };
 		3EF7B2052BFA83AB00F1466C /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B2042BFA83AB00F1466C /* PlaceAnnotation.swift */; };
 		3EF7B2082BFA84B500F1466C /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B2072BFA84B500F1466C /* CLLocation+Extensions.swift */; };
+		3EF7B20A2BFA93F600F1466C /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7B2092BFA93F600F1466C /* PlaceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3EF7B2012BFA80D100F1466C /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		3EF7B2042BFA83AB00F1466C /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		3EF7B2072BFA84B500F1466C /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extensions.swift"; sourceTree = "<group>"; };
+		3EF7B2092BFA93F600F1466C /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				3EC0D7B72BF943D1006DF985 /* ViewController.swift */,
 				3EF7B2012BFA80D100F1466C /* PlacesTableViewController.swift */,
+				3EF7B2092BFA93F600F1466C /* PlaceDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				3EC0D7B82BF943D1006DF985 /* ViewController.swift in Sources */,
 				3EF7B2082BFA84B500F1466C /* CLLocation+Extensions.swift in Sources */,
+				3EF7B20A2BFA93F600F1466C /* PlaceDetailViewController.swift in Sources */,
 				3EF7B2022BFA80D100F1466C /* PlacesTableViewController.swift in Sources */,
 				3EF7B2052BFA83AB00F1466C /* PlaceAnnotation.swift in Sources */,
 				3EC0D7B42BF943D1006DF985 /* AppDelegate.swift in Sources */,
