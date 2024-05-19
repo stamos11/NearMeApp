@@ -11,7 +11,7 @@ import MapKit
 class ViewController: UIViewController {
 
     //MARK: -Properties
-    var loacationManager: CLLocationManager?
+    var locationManager: CLLocationManager?
     
     lazy var mapView: MKMapView = {
         let map = MKMapView()
@@ -56,12 +56,27 @@ class ViewController: UIViewController {
         mapView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     private func setupLocationManager() {
-        loacationManager = CLLocationManager()
-        loacationManager?.delegate = self
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
         
-        loacationManager?.requestWhenInUseAuthorization()
-        loacationManager?.requestAlwaysAuthorization()
-        loacationManager?.requestLocation()
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.requestAlwaysAuthorization()
+        locationManager?.requestLocation()
+    }
+    private func checkLocationAuthorization() {
+        guard let locationManager = locationManager, let location = locationManager.location else {return}
+        
+        switch  locationManager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 750, longitudinalMeters: 750)
+            mapView.setRegion(region, animated: true)
+        case .denied:
+            print("Location services has been denied")
+        case .notDetermined, .restricted:
+            print("Location cannot be determined or restricted")
+        @unknown default:
+            print("Unknown error.Unable to get location")
+        }
     }
 }
 extension ViewController: CLLocationManagerDelegate {
@@ -71,6 +86,9 @@ extension ViewController: CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("")
+    }
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
     }
 }
 
