@@ -11,10 +11,12 @@ import MapKit
 class ViewController: UIViewController {
 
     //MARK: -Properties
+    private var places: [PlaceAnnotation] = []
     var locationManager: CLLocationManager?
     
     lazy var mapView: MKMapView = {
         let map = MKMapView()
+        map.delegate = self
         map.showsUserLocation = true
         map.translatesAutoresizingMaskIntoConstraints = false
         return map
@@ -91,15 +93,18 @@ class ViewController: UIViewController {
         search.start { [weak self] response, error in
             guard let response = response, error == nil else {return}
             
-            let places = response.mapItems.map(PlaceAnnotation.init)
-            places.forEach { place in
+            self?.places = response.mapItems.map(PlaceAnnotation.init)
+            self?.places.forEach { place in
                 self?.mapView.addAnnotation(place)
             }
         }
-//        presentPlacesSheet()
+        self.presentPlacesSheet(places: places)
     }
-    private func presentPlacesSheet() {
-        let placesTVC = PlacesTableViewController()
+    private func presentPlacesSheet(places: [PlaceAnnotation]) {
+        guard let locationManager = locationManager, let userLocation = locationManager.location
+        else {return}
+        
+        let placesTVC = PlacesTableViewController(userLocation: userLocation, places: places)
         placesTVC.modalPresentationStyle = .pageSheet
         
         if let sheet = placesTVC.sheetPresentationController {
@@ -119,6 +124,14 @@ extension ViewController: UISearchTextFieldDelegate {
                 findNearbyPlaces(by: text)
         }
         return true
+    }
+}
+//MARK: -MKMapViewDelegate
+extension ViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: any MKAnnotation) {
+        guard let placeAnnotation = annotation as? PlaceAnnotation else {return}
+        placeAnnotation.id
     }
 }
 //MARK: -CLLocationManagerDelegate
